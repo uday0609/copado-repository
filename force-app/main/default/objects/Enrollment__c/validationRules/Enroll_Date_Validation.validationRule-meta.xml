@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enroll_Date_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>EnrollingDate__c &gt; TODAY()</errorConditionFormula>
+    <errorMessage>Enrollment Date cannot be future</errorMessage>
+</ValidationRule>

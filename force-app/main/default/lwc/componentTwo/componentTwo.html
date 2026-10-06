@@ -1,0 +1,11 @@
+<template>
+    <lightning-input type= "text" label="Enter first name" name="firstName" onchange={handleChange}></lightning-input>
+    <lightning-input type="text" label="Enter last name" name="lastName" onchange={handleChange}></lightning-input>
+    <lightning-input type="email" label="Email address" name="email" onchange={handleChange}></lightning-input>
+    <lightning-input type="tel" label="Phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}}" onchange={handleChange}></lightning-input>
+    <lightning-input type="text" label="Title" name="title" onchange={handleChange}></lightning-input>
+    <lightning-input type="text" label="Department" name="department" onchange={handleChange}></lightning-input>
+    <lightning-button variant="base" label="Create Contact" onclick={handleClick}></lightning-button>
+
+    <lightning-datatable key-field="id" data={list} columns={columns}></lightning-datatable>
+</template>

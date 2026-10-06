@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Book</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Book</value>
+    </caseValues>
+    <layouts>
+        <layout>NewBookLayout</layout>
+        <sections>
+            <label><!-- Book Information --></label>
+            <section>Book Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Book Author is required --></errorMessage>
+        <name>BookAuthorValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Book price should be between 500 to 5000 --></errorMessage>
+        <name>BookPriceValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Book price cannot be empty --></errorMessage>
+        <name>BookPriceValidation1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Book Price Cannot be negative --></errorMessage>
+        <name>BookPriceValidation2</name>
+    </validationRules>
+</CustomObjectTranslation>

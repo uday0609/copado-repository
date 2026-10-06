@@ -1,0 +1,21 @@
+<apex:page title="First Page" standardController="contact">
+  <apex:sectionHeader title="Contact Edit" subtitle="New Contact"/>
+      <apex:form >
+       <apex:pageBlock title="Contact Edit">
+       <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandButton value="Quick Save" action="{!quickSave}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>
+       </apex:pageBlockButtons>
+       <apex:pageBlockSection title="Contact Information">
+           <apex:pageBlockSection columns="2">
+               <apex:outputText value="Contact Owner"></apex:outputText>
+                <apex:outputText value="{!$User.FirstName} {!$User.LastName}" />
+               
+                <apex:outputText value="Phone"></apex:outputText>
+               
+           </apex:pageBlockSection>
+       </apex:pageBlockSection>
+       </apex:pageBlock>
+      </apex:form>
+</apex:page>

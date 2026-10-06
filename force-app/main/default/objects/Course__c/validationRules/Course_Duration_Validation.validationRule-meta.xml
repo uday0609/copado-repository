@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course_Duration_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR(
+        ISPICKVAL(Type__c, &quot;PG&quot;),
+        ISPICKVAL(Type__c, &quot;UG&quot;)
+    ),
+    CONTAINS(LOWER(Duration__c), &quot;months&quot;)
+)</errorConditionFormula>
+    <errorMessage>The duration of UG and PG courses should be in years</errorMessage>
+</ValidationRule>

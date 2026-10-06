@@ -1,0 +1,98 @@
+<template>
+    <lightning-card variant="Narrow">
+        <div class="slds-grid slds-wrap slds-gutters_small slds-p-horizontal_small">
+            <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12">
+                <div class="slds-box slds-box_x-small slds-theme_default custom-card">
+                    <div class="slds-p-around_small">
+                        <lightning-input type="search" variant="label-hidden" placeholder="Search contacts..." onkeyup={handleSearch}></lightning-input>
+                    </div>
+                    <div class="slds-scrollable_y scrollable-container">
+                        <template for:each={filteredContacts} for:item="contact">
+                            <div key={contact.Id} class="slds-box slds-box_x-small slds-m-vertical_small slds-m-horizontal_xx-small custom-card">
+                                <div class="slds-grid slds-grid_vertical-align-center">
+                                    <div class="slds-col slds-no-flex slds-m-right_small">
+                                        <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                                            <img src={contact.Pictures__c} alt="Avatar" />
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-truncate">
+                                        <h2 class="slds-text-heading_label slds-truncate" title={contact.Name}><b>{contact.Name}</b></h2>
+                                        <p class="slds-text-body_small slds-text-color_weak slds-truncate">{contact.Email}</p>
+                                    </div>
+                                    <div class="slds-col slds-no-flex">
+                                        <lightning-badge label={contact.taskCount} class="slds-m-right_xx-small circle-badge"></lightning-badge>
+                                        <lightning-button-icon  icon-name="utility:chevronright" variant="border-filled" data-id={contact.Id} onclick={handleClick} size="medium"></lightning-button-icon>
+                                    </div>
+                                </div>
+                                <div class="slds-m-top_small">
+                                    <div class="slds-grid slds-grid_align-spread slds-text-body_small">
+                                        <span></span>
+                                        <span class="slds-text-color_weak">{contact.progress}%</span>
+                                    </div>
+                                    <lightning-progress-bar value={contact.progress} size="medium" variant="circular"></lightning-progress-bar>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <template if:true={row}>
+                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12">
+                    <div class="slds-box slds-box_x-small slds-theme_default custom-card ">
+                        <div class="slds-p-around_small slds-m-bottom_small">
+                            <h2 class="slds-text-heading_medium slds-text-align_center">Tasks</h2>
+                        </div>
+                        <div class="slds-grid slds-gutters_xx-small slds-m-bottom_small slds-p-horizontal_small">
+                            <div class="slds-col slds-size_4-of-12">
+                                <lightning-combobox variant="label-hidden" placeholder="Type" options={types} value={trackChange.Type} data-field="Type" onchange={handleChange}></lightning-combobox>
+                            </div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <lightning-input variant="label-hidden" placeholder="Description..." value={trackChange.Description} data-field="Description" onchange={handleChange}></lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_2-of-12">
+                                <lightning-button-icon icon-name="utility:add" variant="brand" onclick={addTasks} class="slds-stretch"></lightning-button-icon>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <div class="slds-scrollable_y slds-p-around_small" style="height: 400px;">
+                                <table class="slds-table slds-box slds-box_x-small slds-theme_default custom-card">
+                                    <thead>
+                                        <tr class="slds-line-height_reset">
+                                            <th class="sticky-header" scope="col" style="width: 3.5rem;"></th>
+                                            <th class="sticky-header" scope="col" style="width: 20%;">Type</th>
+                                            <th class="sticky-header" scope="col" style="width: 20%;">Date</th>
+                                            <th class="sticky-header" scope="col" style="width: 40%;">Description</th>
+                                            <th class="sticky-header" scope="col" style="width: 20%;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <template for:each={row.Tasks} for:item="task">
+                                            <tr key={task.Id} class="slds-hint-parent">
+                                                <td class="slds-text-align_center">
+                                                    <template if:false={task.isCompleted}>
+                                                        <lightning-input type="checkbox" variant="label-hidden" data-id={task.Id} checked={task.isChecked} onchange={handleRowSelection}></lightning-input>
+                                                    </template>
+                                                </td>
+                                                <td class="slds-truncate" title={task.Type}>{task.Type}</td>
+                                                <td class="slds-truncate" title={task.Date}>{task.ActivityDate}</td>
+                                                <td class="slds-cell-wrap" title={task.Description}>{task.Description}</td>
+                                                <td class="slds-truncate">
+                                                    <span class={task.statusClass}>{task.Status}</span>
+                                                </td>
+                                            </tr>
+                                        </template>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="slds-p-around_small slds-text-align_right">
+                            <lightning-button label="Save" variant="brand-outline" onclick={handleSave} class="slds-m-right_x-small"></lightning-button>
+                            <lightning-button label="Close" variant="destructive-text" onclick={handleClose}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Course</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Course</value>
+    </caseValues>
+    <layouts>
+        <layout>Course Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The duration of UG and PG courses should be in years --></errorMessage>
+        <name>Course_Duration_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The duration of internship and diploma should be in months --></errorMessage>
+        <name>Course_Duration_Validation1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Duration should contain either month or year with it --></errorMessage>
+        <name>Duration_Format_Check_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Duration should start with a number --></errorMessage>
+        <name>Duration_Format_Check_Validation1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Fees should be between 5000 to 50000 --></errorMessage>
+        <name>Fees_Related_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

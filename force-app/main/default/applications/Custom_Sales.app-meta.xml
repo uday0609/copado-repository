@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Custom Sales</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>MyProduct__c</tabs>
+    <tabs>MyCustomer__c</tabs>
+    <tabs>MyOrder__c</tabs>
+    <tabs>Customer_Order__c</tabs>
+    <tabs>Order_Line_Item__c</tabs>
+    <tabs>MyInvoice__c</tabs>
+    <tabs>Referral__c</tabs>
+    <tabs>Program__c</tabs>
+    <tabs>Suggestion__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Custom_Sales_UtilityBar</utilityBar>
+</CustomApplication>

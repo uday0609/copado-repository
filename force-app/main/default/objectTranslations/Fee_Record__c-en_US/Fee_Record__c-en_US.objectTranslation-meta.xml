@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Fee_Record</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Fee_Record</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Payment amount must be &gt; 0 --></errorMessage>
+        <name>Payment_Amount_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Payment Date cannot be the future date --></errorMessage>
+        <name>Payment_Date_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Payment Status cannot be “Completed” if amount = 0 --></errorMessage>
+        <name>Payment_Status_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

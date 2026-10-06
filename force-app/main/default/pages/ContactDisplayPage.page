@@ -1,0 +1,79 @@
+<apex:page standardController="Contact" recordSetVar="contacts" lightningStylesheets="true">
+    <apex:form >
+        <div style="display: flex; align-items: center; margin-top:15px;margin-bottom:2px">
+            
+            <div style="display: flex;color:white;">
+                <span class="slds-icon_container slds-icon-standard-contact" style="line-height: 1;">
+                    <svg class="slds-icon" aria-hidden="true" style="width: 40px; height: 50px;">
+                        <use xmlns:xlink="http://www.w3.org" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#contact')}"></use>
+                    </svg>
+                </span>
+            </div>
+            
+            <div>
+                <apex:selectList value="{!filterId}" size="1">
+                    <apex:selectOptions value="{!listviewoptions}" />
+                    <apex:actionSupport event="onchange" reRender="contacts_panel" />
+                </apex:selectList>
+            </div>
+
+            <div style="font-size: 13px;margin-left:5px">
+                <apex:commandLink value="Edit" style="color:#015ba7; text-decoration: none;"/>
+                <span style="margin: 0 2px; color: #ccc;">|</span>
+                <apex:commandLink value="Delete" onclick="return confirm('Are you sure?');" style="color:#015ba7; text-decoration: none;" reRender="contacts_panel" />
+                <span style="margin: 0 2px; color: #ccc;">|</span>
+                <apex:commandLink value="Create New View" style="color:#015ba7; text-decoration: none;" />
+            </div>
+            
+        </div>  
+        
+        <apex:pageBlock title="Contacts List" id="contacts_panel" >
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="New Contact" action="{!'/apex/ContactCreationPage'}" />
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!contacts}" var="con">
+                
+                <apex:column headerValue="Action">                   
+                   <!-- <apex:commandButton value="Edit" style="color:#015ba7;text-decoration:none;border:none;background:transparent;font-size:10px" /> !-->
+                    
+                    <!-- <apex:commandButton value="Del" style="color:#015ba7;text-decoration:none;border:none;background:transparent;font-size:10px" action="{!delete}" reRender="contacts_panel">
+                    	<apex:param name="id" value="{!con.Id}" assignTo="{!selectedContactId}"/>
+                    </apex:commandButton>  !-->
+                    
+                    <apex:commandButton value="Edit" style="color:#015ba7; text-decoration:none; border:none; background:transparent; font-size:10px; cursor:pointer;" onclick="window.location.href='/apex/ContactCreationPage?id={!con.Id}';return false;" />
+                    <apex:commandButton value="Del" style="color:#015ba7; text-decoration:none; border:none; background:transparent; font-size:10px; cursor:pointer;" onclick="if(confirm('Are you sure?')){ window.location.href='{!URLFOR($Action.Contact.Delete, con.Id, [retURL='/apex/ContactDisplayPage'])}'; } return false;" />
+                        
+                   
+                    
+                    <!--<apex:commandLink value="Edit" style="color:#015ba7;text-decoration:none"></apex:commandLink>
+                    <apex:outputText value=" | " />
+                      <apex:commandLink value="Del" style="color:#015ba7;text-decoration:none" onclick="return confirm('Are you sure?');" action="{!delete}" reRender="contacts_panel" >
+                    	<apex:param name="id" value="{!con.Id}" /> 
+                    </apex:commandLink> !-->
+                    
+                    
+                </apex:column>
+                
+                <apex:column value="{!con.Name}" />
+                <apex:column value="{!con.Email}" />
+                <apex:column value="{!con.Phone}" />
+                <apex:column value="{!con.Gender__c}"/>
+                <apex:column value="{!con.RecordType.DeveloperName}"/>
+            </apex:pageBlockTable>
+            
+            <table style="width: 100%; margin-top: 10px;">
+                <tr>
+                    <td align="left">
+                        <apex:outputText value="{!PageNumber * PageSize - (PageSize - 1)} - {!IF(PageNumber * PageSize > ResultSize, ResultSize, PageNumber * PageSize)} of {!ResultSize}" />
+                    </td>
+                    <td align="right">
+                        <apex:commandLink action="{!Previous}" value="« Previous" rendered="{!HasPrevious}" style="text-decoration:none" />
+                        <apex:outputText value=" | " rendered="{!HasNext}" />
+                        <apex:commandLink action="{!Next}" value="Next »" rendered="{!HasNext}" style="text-decoration:none;" />
+                    </td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

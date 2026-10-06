@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duration_Format_Check_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(
+  OR(
+    CONTAINS(LOWER(Duration__c), &quot;month&quot;),
+    CONTAINS(LOWER(Duration__c), &quot;year&quot;),
+    CONTAINS(LOWER(Duration__c), &quot;yrs&quot;),
+  CONTAINS(LOWER(Duration__c), &quot;yr&quot;)
+  )
+)</errorConditionFormula>
+    <errorMessage>Duration should contain either month or year with it</errorMessage>
+</ValidationRule>

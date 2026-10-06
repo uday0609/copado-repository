@@ -1,0 +1,12 @@
+<template> 
+    <lightning-card title="Contact Information" icon-name='standard:contact'> 
+        <div class="slds-m-top_medium"> 
+            <lightning-input label="Name" data-id="name" type="text" placeholder="Enter full name"></lightning-input> 
+            <lightning-input label="Phone" data-id="phone" type="number" placeholder="Enter phone number"></lightning-input> 
+            <lightning-input label="Email" data-id="email" type="email" placeholder="Enter email address"> </lightning-input> 
+            <div class="slds-m-top_medium"> 
+                <lightning-button variant="brand" label="Save Contact" onclick={handleSave}></lightning-button> 
+            </div> 
+        </div> 
+    </lightning-card> 
+</template>

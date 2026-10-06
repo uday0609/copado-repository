@@ -1,0 +1,55 @@
+<template>
+    <lightning-card class="slds-m-around_small slds-p-around_large">
+        <div class="slds-grid">
+            <div class="slds-col slds-size_6-of-12 slds-gutter slds-m-around_small slds-card_boundary slds-p-around_medium custom-card" onkeyup={handleSearch}>
+                <div class="slds-m-bottom_small">
+                    <lightning-input type="search" placeholder="Search" class="slds-m-around_small"></lightning-input>
+                </div>
+                <div class="slds-scrollable_y scrollable-container">
+                    <template for:each={filteredContacts} for:item="contact">
+                        <lightning-card key={contact.Id} class="slds-m-around_small custom-card">
+                            <div class="slds-grid slds-grid_vertical-align-center slds-p-around_small">
+                                <div class="slds-col slds-size_2-of-12 slds-gutter">
+                                    <img src={contact.Pictures__c} alt="Avatar" style="max-height: 60%; max-width: 60%" />
+                                </div>
+                                <div class="slds-col slds-size_8-of-12 slds-gutter">
+                                    <h2 class="slds-text-heading_small slds-text-title_bold">{contact.Name}</h2>
+                                    <p class="slds-text-color_weak slds-text-body_small">{contact.Email}</p>
+                                </div>
+                                <div class="slds-col slds-size_2-of-12 slds-gutter">
+                                    <lightning-button variant="base" data-id={contact.Id} label="View"
+                                        onclick={handleClick}></lightning-button>
+                                </div>
+                            </div>
+                        </lightning-card>
+                    </template>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size_6-of-12 slds-gutter slds-p-around_x-large">
+                <template if:true={row}>
+                    <lightning-card
+                        class="custom-card slds-m-around_medium slds-p-around_large slds-p-top_xx-large slds-p-bottom_xx-large">
+                        <div class="slds-text-align_center">
+                            <div class="slds-m-bottom_medium lwc-avatar">
+                                <img src={row.Pictures__c} alt="Avatar" class="large-avatar-size" />
+                            </div>
+                            <h2 class="slds-text-heading_medium slds-m-bottom_xx-small slds-text-title_bold">{row.Name}
+                            </h2>
+                            <p class="slds-text-title_caps slds-text-color_weak slds-m-bottom_large"
+                                style="letter-spacing: 1px;">CEO</p>
+                            <div class="slds-text-color_weak slds-text-body_regular">
+                                <p>{row.MailingAddress.street}</p>
+                                <p>{row.MailingAddress.city} {row.MailingAddress.state} {row.MailingAddress.postalCode}
+                                </p>
+                                <p class="slds-m-top_small">{row.Phone}</p>
+                                <p class="slds-m-top_small">{row.Email}</p>
+                                <p class="slds-m-top_medium">{row.Website__c}</p>
+                            </div>
+                        </div>
+                    </lightning-card>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

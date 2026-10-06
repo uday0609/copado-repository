@@ -1,0 +1,10 @@
+<template>
+    <h1>Name</h1>
+    <template lwc:if={checkIncomplete} class="slds-color-blue">
+        <p>Incomplete Name</p>
+    </template>
+
+    <template lwc:else>
+        <p> {firstName} {lastName}</p>
+    </template>
+</template>

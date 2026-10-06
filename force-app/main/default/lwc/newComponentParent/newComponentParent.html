@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Custom Contact" variant="base" icon-name = "standard:contact" >
+      <template lwc:if={contact.data} >
+        <div class="slds-m-around_medium slds-text-align_center">
+            <p><strong>Name: </strong>{name}</p>
+            <p><strong>Phone: </strong>{phone}</p>
+            <p><strong>Email: </strong>{email}</p>
+        </div>
+      </template>
+    </lightning-card>
+</template>

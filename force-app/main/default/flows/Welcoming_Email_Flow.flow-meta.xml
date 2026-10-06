@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Staff_Member_Alert</name>
+        <label>Staff Member Alert</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Contact.Welcoming_Staff_Member</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Contact.Welcoming_Staff_Member</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Student_Alert</name>
+        <label>Student Alert</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Contact.Welcoming_Student</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Contact.Welcoming_Student</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Decision_Check</name>
+        <label>Decision Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IF_Staff</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Student</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Staff_Member_Alert</targetReference>
+            </connector>
+            <label>IF Student</label>
+        </rules>
+        <rules>
+            <name>IF_Student</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Staff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Student_Alert</targetReference>
+            </connector>
+            <label>IF Staff</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>CalculateFinancialYear</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  MONTH(TODAY()) &gt;= 4,
+  RIGHT(TEXT(YEAR(TODAY())), 2) &amp; &quot;/&quot; &amp; RIGHT(TEXT(YEAR(TODAY()) + 1), 2),
+  RIGHT(TEXT(YEAR(TODAY()) - 1), 2) &amp; &quot;/&quot; &amp; RIGHT(TEXT(YEAR(TODAY())), 2)
+)</expression>
+    </formulas>
+    <interviewLabel>Welcoming Email Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Welcoming Email Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_Check</targetReference>
+        </connector>
+        <filterFormula>OR(
+{!$Record.RecordType.DeveloperName} =&quot;Student&quot;,
+{!$Record.RecordType.DeveloperName} =&quot;Staff&quot;
+)</filterFormula>
+        <object>Contact</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>NextSequence</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

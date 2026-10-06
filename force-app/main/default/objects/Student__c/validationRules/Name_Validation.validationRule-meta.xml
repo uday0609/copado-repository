@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>LEN( First_Name__c ) &lt; 2</errorConditionFormula>
+    <errorMessage>First Name must be at least 2 characters long.</errorMessage>
+</ValidationRule>

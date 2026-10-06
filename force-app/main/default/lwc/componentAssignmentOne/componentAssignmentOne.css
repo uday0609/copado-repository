@@ -1,0 +1,19 @@
+.custom-card{
+    display: block;
+    border: none;
+    overflow: visible !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.large-avatar-size{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.scrollable-container{
+    height: 70vh;
+    overflow-y: auto;
+}

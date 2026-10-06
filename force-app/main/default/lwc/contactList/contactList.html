@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Contact List">
+        <template lwc:if={contacts}>
+            <lightning-datatable key-field="Id" data={contacts} columns={columns}></lightning-datatable>
+        </template>
+        <template lwc:if={errors}>
+            <template for:each={errors} for:item="error">
+                <p key={error} class="slds-text-color_error slds-p-around_small">{error}</p>
+            </template>
+        </template>
+    </lightning-card>
+</template>
