@@ -1,0 +1,178 @@
+<apex:page standardController="Contact" title="Custom Contact Page" showHeader="true">
+   <apex:sectionHeader title="Contact Edit" subtitle="{!IF(ISBLANK(Contact.Id),'New Contact',Contact.Name)}" description="Contacts not associated with accounts are private and cannot be viewed by other users or included in reports." />
+    <apex:form >
+        <apex:pageBlock title="Contact Edit" >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Save & New" action="{!quicksave}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Contact Information" collapsible="false" columns="2">
+        
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Owner"/>
+                    <apex:outputText value="{!$User.FirstName} {!$User.LastName}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Phone" />
+                    <apex:inputField value="{!Contact.Phone}" />
+                </apex:pageBlockSectionItem>
+        
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Salutation" />
+                    <apex:inputField value="{!Contact.Salutation}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Home Phone" />
+                    <apex:inputField value="{!Contact.HomePhone}" />
+                </apex:pageBlockSectionItem>
+                
+                  <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="First Name" />
+                    <apex:inputField value="{!Contact.FirstName}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Mobile" />
+                    <apex:inputField value="{!Contact.MobilePhone}" />
+                </apex:pageBlockSectionItem>
+                
+                  <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Last Name" />
+                    <apex:inputField value="{!Contact.LastName}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Other Phone" />
+                    <apex:inputField value="{!Contact.OtherPhone}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Account Name" />
+                    <apex:inputField value="{!Contact.AccountId}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Fax" />
+                    <apex:inputField value="{!Contact.Fax}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Title" />
+                    <apex:inputField value="{!Contact.Title}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Email" />
+                    <apex:inputField value="{!Contact.Email}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Department" />
+                    <apex:inputField value="{!Contact.Department}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Assistant" />
+                    <apex:inputField value="{!Contact.AssistantName}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Birthdate" />
+                    <apex:inputField value="{!Contact.Birthdate}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Asst. Phone" />
+                    <apex:inputField value="{!Contact.AssistantPhone}" />
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Lead Source" />
+                    <apex:inputField value="{!Contact.LeadSource}" />
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Address Information" collapsible="false" columns="2">
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Mailing Country" />
+                    <apex:inputField value="{!Contact.MailingCountryCode}" />
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Other Country" />
+                    <apex:inputField value="{!Contact.OtherCountryCode}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Mailing Street" />
+                    <apex:inputField value="{!Contact.MailingStreet}" />
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Other Country" />
+                    <apex:inputField value="{!Contact.OtherStreet}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Mailing City" />
+                    <apex:inputField value="{!Contact.MailingCity}" />
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Other City" />
+                    <apex:inputField value="{!Contact.OtherCity}" />
+                </apex:pageBlockSectionItem>
+                
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Mailing State/Province" />
+                    <apex:inputField value="{!Contact.MailingStateCode}" />
+                </apex:pageBlockSectionItem>
+
+                 <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Other State/Province" />
+                    <apex:inputField value="{!Contact.OtherStateCode}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Mailing Zip/Postal Code" />
+                    <apex:inputField value="{!Contact.MailingPostalCode}" />
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Other Country" />
+                    <apex:inputField value="{!Contact.OtherPostalCode}" />
+                </apex:pageBlockSectionItem>
+               
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Additional Information" collapsible="false" columns="2">
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Languages" />
+                    <apex:inputField value="{!Contact.Languages__c}" />
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Level" />
+                    <apex:inputField value="{!Contact.Level__c}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Description Information" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Description" />
+                    <apex:inputField value="{!Contact.Description}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

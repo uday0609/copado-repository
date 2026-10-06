@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Student</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Student</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Student must be of 16 years to enroll into the college --></errorMessage>
+        <name>Age_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Birthdate cannot be in future --></errorMessage>
+        <name>BirthDate_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Email must contain &quot;@&quot; --></errorMessage>
+        <name>Email_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- First Name must be at least 2 characters long. --></errorMessage>
+        <name>Name_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Phone Number must be of 10 digits --></errorMessage>
+        <name>Phone_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

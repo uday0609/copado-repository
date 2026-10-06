@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Alert_for_Duplicate</fullName>
+        <ccEmails>udaypunjani06@gmail.com</ccEmails>
+        <description>Email Alert for Duplicate</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Duplicate_Record_Email_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>WelcomeMemberEmailAlert</fullName>
+        <ccEmails>udaypunjani06@gmail.com</ccEmails>
+        <description>WelcomeMemberEmailAlert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/WelcomeMember</template>
+    </alerts>
+    <alerts>
+        <fullName>Welcoming_Staff_Member</fullName>
+        <ccEmails>udaypunjani06@gmail.com</ccEmails>
+        <description>Welcoming Staff Member</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Welcoming_Staff_Member</template>
+    </alerts>
+    <alerts>
+        <fullName>Welcoming_Student</fullName>
+        <ccEmails>udaypunjani06@gmail.com</ccEmails>
+        <description>Welcoming Student</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Welcoming_Student</template>
+    </alerts>
+</Workflow>

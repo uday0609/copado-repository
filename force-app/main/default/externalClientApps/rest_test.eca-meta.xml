@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalClientApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>udaypunjani06@gmail.com</contactEmail>
+    <distributionState>Local</distributionState>
+    <isProtected>false</isProtected>
+    <label>rest test</label>
+    <orgScopedExternalApp>00Dg50000013XGf:rest_test</orgScopedExternalApp>
+</ExternalClientApplication>

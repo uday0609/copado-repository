@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FirstName_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR(
+        RecordType.DeveloperName = &quot;Staff&quot;,
+        RecordType.DeveloperName = &quot;Student&quot;,
+        RecordType.DeveloperName = &quot;Member&quot;
+
+    ),
+   ISBLANK(FirstName)   
+)</errorConditionFormula>
+    <errorMessage>First Name is required</errorMessage>
+</ValidationRule>

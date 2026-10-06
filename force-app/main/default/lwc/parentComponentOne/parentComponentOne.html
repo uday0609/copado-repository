@@ -1,0 +1,24 @@
+<template>
+    <div>
+        <lightning-input type="name" name="username" label="name" placeholder="Enter your name" onchange={handleFilterChange}></lightning-input>
+        <c-child-component-one user-name = "Uday"></c-child-component-one>
+        <c-child-component-one user-name = {newName}></c-child-component-one>
+         <c-child-component-one user-name = {newName1}></c-child-component-one>
+    </div>
+         <c-child-component-one></c-child-component-one>
+    <lightning-button variant="brand" label="Call Child Method" onclick={callReset}></lightning-button>
+
+     <p><strong>Name : </strong> {user.Name}</p>
+          <p><strong>Age : </strong> {user.Age}</p>
+
+          <lightning-input label="Age" data-id='age' type='text' placeholder="Enter your age"></lightning-input>
+          <lightning-button variant="brand" label="Change user age" onclick={handleChange}></lightning-button>
+
+          <template if:true={contactData}>
+             <lightning-datatable key-field="id" data={contactData} columns={columns} show-row-number-column></lightning-datatable>
+          </template>
+
+          <template if:true={error}>
+            <p>Error {error}n error occured</p>
+          </template>
+</template>

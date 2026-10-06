@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Teacher</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Teacher</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Email should contain &apos;@&apos; symbol --></errorMessage>
+        <name>Email_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Join Date cannot be a future date --></errorMessage>
+        <name>Join_Date_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Phone Number must be of 10 digits --></errorMessage>
+        <name>Phone_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

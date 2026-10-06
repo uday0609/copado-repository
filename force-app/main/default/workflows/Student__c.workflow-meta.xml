@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>First_email_alert</fullName>
+        <ccEmails>udaypunjani06@gmail.com</ccEmails>
+        <description>First email alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>udaypunjani06399@agentforce.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Welcome_Email_Template</template>
+    </alerts>
+</Workflow>

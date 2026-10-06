@@ -1,0 +1,15 @@
+<template>
+    <lightning-modal-header label='Account Details'></lightning-modal-header>
+    <lightning-modal-body>
+        <p><strong>Name:</strong> {accountData.Name}</p>
+        <p><strong>Phone:</strong> {accountData.Phone}</p>
+        <p><strong>Industry:</strong> {accountData.Industry}</p>
+        <p><strong>Annual Revenue:</strong> {accountData.AnnualRevenue}</p>
+        <p><strong>Number of Employees:</strong> {accountData.NumberOfEmployees}</p>
+        <p><strong>Website:</strong> {accountData.Website}</p>
+        <p><strong>Description:</strong> {accountData.Description}</p>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button variant="base" label="Close" onclick={handleClose}></lightning-button>
+    </lightning-modal-footer>
+</template>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BirthDateValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordTypeId ==&quot;Student&quot;,OR(
+    Birthdate &gt;  TODAY() ,
+      ADDMONTHS( Birthdate ,180) &gt; TODAY()
+))</errorConditionFormula>
+    <errorMessage>Student should at least of 15 years for admission</errorMessage>
+</ValidationRule>

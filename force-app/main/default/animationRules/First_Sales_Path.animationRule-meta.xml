@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <animationFrequency>always</animationFrequency>
+    <developerName>First_Sales_Path</developerName>
+    <isActive>true</isActive>
+    <masterLabel>First Sales Path</masterLabel>
+    <recordTypeContext>Custom</recordTypeContext>
+    <recordTypeName>First_Record_Sales</recordTypeName>
+    <sobjectType>Opportunity</sobjectType>
+    <targetField>LeadSource</targetField>
+    <targetFieldChangeToValues>Phone Inquiry</targetFieldChangeToValues>
+</AnimationRule>

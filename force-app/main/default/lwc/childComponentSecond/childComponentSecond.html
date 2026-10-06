@@ -1,0 +1,9 @@
+<template>
+    <template if:true={contactData}>
+        <lightning-datatable key-field="Id" columns={columns} data={contactData} show-row-number-column  ></lightning-datatable>
+    </template>
+
+    <template if:true={error}>
+        <p>Error occured : {error}</p>
+    </template>
+</template>

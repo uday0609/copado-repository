@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReturnDate_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>ReturnDate__c &lt; IssueDate__c</errorConditionFormula>
+    <errorMessage>Return Date cannot be before than issue date</errorMessage>
+</ValidationRule>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>IssueDetails</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IssueDetails</value>
+    </caseValues>
+    <layouts>
+        <layout>NewIssueDetailsPage</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Issue Information --></label>
+            <section>Issue Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Damage Percent is required --></errorMessage>
+        <name>DamagePercent_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IssuingCopy Must Be Available Before Issue --></errorMessage>
+        <name>IssueCopyAvailBeforeIssue</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IssueDate Required When Status = Issue --></errorMessage>
+        <name>IssueDateRequiredWhenIssued</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Issue Date cannot be the future date --></errorMessage>
+        <name>IssueDate_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ReturnDate Required When Status = Return --></errorMessage>
+        <name>ReturnDateRequiredWhenReturn</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Return Date cannot be before than issue date --></errorMessage>
+        <name>ReturnDate_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Same Copy Cannot Be Issued Twice --></errorMessage>
+        <name>SameCopyTwice</name>
+    </validationRules>
+</CustomObjectTranslation>

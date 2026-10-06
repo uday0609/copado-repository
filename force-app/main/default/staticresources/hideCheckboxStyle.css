@@ -1,0 +1,11 @@
+/* This targets the checkbox container only when the row has our custom class */
+.hide-check lightning-primitive-cell-checkbox {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Optional: Make the completed row look 'read-only' */
+.hide-check {
+    background-color: #f9f9f9 !important;
+    pointer-events: none;
+}

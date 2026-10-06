@@ -1,0 +1,29 @@
+<template>
+      <!-- <lightning-modal-header label="New Component" slot="header"></lightning-modal-header>
+      <lightning-modal-body>
+         <lightning-input type= "text" label="Enter first name" name="firstName"></lightning-input>
+        <lightning-input type="text" label="Enter last name" name="lastName"></lightning-input>
+        <lightning-input type="email" label="Email address" name="email" ></lightning-input>
+        <lightning-input type="tel" label="Phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}}" ></lightning-input>
+        <lightning-input type="text" label="Title" name="title"></lightning-input>
+        <lightning-input type="text" label="Department" name="department"></lightning-input>
+      </lightning-modal-body>
+      <lightning-modal-footer slot="footer">
+         <lightning-button variant="base" label="Create Contact" ></lightning-button>
+      </lightning-modal-footer> -->
+
+
+       <!-- <c-account-tile>
+            <h2 slot="header">Component Header</h2>
+            <lightning-input type= "text" label="Enter first name" name="firstName"></lightning-input>
+            <lightning-input type="text" label="Enter last name" name="lastName"></lightning-input>
+            <lightning-input type="email" label="Email address" name="email" ></lightning-input>
+            <lightning-input type="tel" label="Phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}}" ></lightning-input>
+            <lightning-input type="text" label="Title" name="title"></lightning-input>
+            <lightning-input type="text" label="Department" name="department"></lightning-input>
+            <div slot="footer">
+                
+            </div>
+       </c-account-tile> -->
+      <lightning-datatable key-field="Id" show-row-number-column="true" hide-checkbox-column="true" data={accounts} columns={columns} onrowaction={handleRowAction} default-sort-direction={defaultSortDirection} sorted-direction={sortDirection} sorted-by={sortedBy} onsort={handleSort} ></lightning-datatable>
+</template>

@@ -1,0 +1,21 @@
+<template>
+    <div>
+        <template lwc:if={userName}>
+            <h1>Hello {userName}</h1>
+        </template>
+        <template lwc:else>
+            <h1>Hello Guest</h1>
+        </template>
+
+        <lightning-input label="Name" data-id="name" type="text" placeholder="Enter full name"></lightning-input> 
+          <lightning-input label="Phone" data-id="phone" type="number" placeholder="Enter phone number"></lightning-input> 
+          <lightning-input label="Email" data-id="email" type="email" placeholder="Enter email address"> </lightning-input> 
+
+          <p><strong>Name : </strong> {user.Name}</p>
+          <p><strong>Age : </strong> {user.Age}</p>
+
+          <lightning-input label="Age" data-id='age' type='text' placeholder="Enter your age"></lightning-input>
+          <lightning-button variant="brand" label="Change user age" onclick={handleChange}></lightning-button>
+          
+    </div>
+</template>

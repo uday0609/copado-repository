@@ -1,0 +1,28 @@
+<apex:page standardController="Course__c" title="Custom Course Page"> 
+    <apex:sectionHeader title="Course Edit" subtitle="New Course"/> 
+    <apex:form > 
+        <apex:pageBlock title="Course Edit"> 
+            <apex:pageBlockButtons > 
+                <apex:commandButton value="Save" action="{!save}" /> 
+                <apex:commandButton value="Quick Save" action="{!quicksave}" /> 
+                <apex:commandButton value="Cancel" action="{!cancel}" /> 
+            </apex:pageBlockButtons> 
+            <apex:pageBlockSection title="Information" collapsible="false" columns="2"> 
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Course Title"></apex:outputLabel>
+                	<apex:inputField value="{!Course__c.Course_Title__c}" /> 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                	 <apex:outputLabel value="Owner"/>
+                    <apex:outputText value="{!$User.FirstName} {!$User.LastName}"></apex:outputText>
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Duration"></apex:outputLabel>
+                	<apex:inputField value="{!Course__c.Duration__c}" /> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection> 
+            
+        </apex:pageBlock> 
+    </apex:form> 
+</apex:page>

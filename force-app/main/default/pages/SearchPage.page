@@ -1,0 +1,10 @@
+<apex:page controller="CourseController" tabStyle="Course__c" title="Course Search" >
+    <apex:sectionHeader title="Course" subtitle="Searching" />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection collapsible="false" columns="1" title="Search Criteria">
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

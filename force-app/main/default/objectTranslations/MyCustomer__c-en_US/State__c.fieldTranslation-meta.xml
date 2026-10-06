@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- State --></label>
+    <name>State__c</name>
+    <picklistValues>
+        <masterLabel>Haryana</masterLabel>
+        <translation><!-- Haryana --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maharastra</masterLabel>
+        <translation><!-- Maharastra --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Punjab</masterLabel>
+        <translation><!-- Punjab --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rajasthan</masterLabel>
+        <translation><!-- Rajasthan --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

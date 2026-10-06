@@ -1,0 +1,59 @@
+<apex:page controller="ContactController" lightningStylesheets="true">
+    <apex:form >
+        <apex:pageMessages />
+        <div style="display: flex; align-items: center; margin-top:15px;margin-bottom:2px">
+            
+            <div style="display: flex;color:white;">
+                <span class="slds-icon_container slds-icon-standard-contact" style="line-height: 1;">
+                    <svg class="slds-icon" aria-hidden="true" style="width: 40px; height: 50px;">
+                        <use xmlns:xlink="http://www.w3.org" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#contact')}"></use>
+                    </svg>
+                </span>
+            </div>
+            
+            <div>
+                <apex:selectList value="{!selectedFilter}" size="1">
+                    <apex:selectOptions value="{!filterOptions}" />
+                    <apex:actionSupport event="onchange" action="{!applyFilter}" reRender="contacts_panel" />
+                </apex:selectList>
+            </div>
+
+             <apex:commandButton value="Edit" style="color:#015ba7; text-decoration:none; border:none; background:transparent; font-size:10px; cursor:pointer;" />
+             <apex:commandButton value="Del" style="color:#015ba7; text-decoration:none; border:none; background:transparent; font-size:10px; cursor:pointer;" action="{!deleteSelected}" onclick="if(confirm('Are you sure')) " reRender="contacts_panel, msg_id" />
+                        
+            
+        </div>  
+        
+        <apex:pageBlock title="Contacts List" id="contacts_panel" >
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="New Contact" action="{!'/apex/ContactCreationPage'}" />
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!contacts}" var="con">
+                
+                <apex:column headerValue="Select Records">                   
+                 	 <apex:inputCheckbox value="{!con.isSelected}" /> 
+                </apex:column>
+                
+                <apex:column value="{!con.con.Name}" />
+                <apex:column value="{!con.con.Email}" />
+                <apex:column value="{!con.con.Phone}" />
+                <apex:column value="{!con.con.Gender__c}"/>
+                <apex:column value="{!con.con.RecordType.DeveloperName}"/>
+            </apex:pageBlockTable>
+            
+            <table style="width: 100%; margin-top: 10px;">
+                <tr>
+                    <td align="left">
+                        <apex:outputText value="{!pageNumber * pageSize - (pageSize - 1)} - {!IF(pageNumber * pageSize > totalRecords, totalRecords, PageNumber * pageSize)} of {!totalRecords}" />
+                    </td>
+                    <td align="right">
+                        <apex:commandLink action="{!previous}" value="« Previous" rendered="{!hasPrevious}" style="text-decoration:none" />
+                        <apex:outputText value=" | " />
+                        <apex:commandLink action="{!next}" value="Next »" rendered="{!hasNext}" style="text-decoration:none;" />
+                    </td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

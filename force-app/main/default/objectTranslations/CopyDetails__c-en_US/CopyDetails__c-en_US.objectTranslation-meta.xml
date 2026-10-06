@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CopyDetails</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CopyDetails</value>
+    </caseValues>
+    <layouts>
+        <layout>CopyDetails Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NewPageLayout</layout>
+        <sections>
+            <label><!-- Copy Information --></label>
+            <section>Copy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Lost/Damaged Copy Cannot Be Issued Again --></errorMessage>
+        <name>IssueValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status Cannot Change from Lost to Available Directly --></errorMessage>
+        <name>StatusValidation</name>
+    </validationRules>
+</CustomObjectTranslation>
